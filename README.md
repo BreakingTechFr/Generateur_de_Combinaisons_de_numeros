@@ -1,4 +1,7 @@
-# Générateur de Combinaisons
+# Générateur de Combinaisons de Numéros
+
+<img width="382" alt="2024-04-28_18-02-11" src="https://github.com/BreakingTechFr/Generateur_de_Combinaisons_de_numeros/assets/128238555/d4e6158a-ee8a-418b-a789-764adfc251a8">
+
 Ce script Python permet de générer toutes les combinaisons possibles à partir d'un numéro initial contenant des chiffres inconnus représentés par des 'X'. Les combinaisons peuvent être générées dans différents formats de sortie tels que le texte brut, le CSV ou le JSON.
 
 ## Prérequis
