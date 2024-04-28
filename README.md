@@ -15,7 +15,6 @@ json
 threading
 multiprocessing
 Installation
-Aucune installation supplémentaire n'est nécessaire. Assurez-vous simplement d'avoir les bibliothèques requises installées, puis vous pouvez exécuter le script directement.
 
 ## Utilisation
 1. Assurez-vous d'avoir installé les dépendances requises en exécutant :
