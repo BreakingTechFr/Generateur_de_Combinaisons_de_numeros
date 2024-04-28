@@ -11,7 +11,7 @@ import multiprocessing
 class ApplicationCombinaisons(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Générateur de Combinaisons")
+        self.title("Générateur de Combinaisons de numéros")
         self.configure(bg="#000000")  # Couleur de fond noire
         
         # Définition du style pour le fond noir
@@ -20,7 +20,7 @@ class ApplicationCombinaisons(tk.Tk):
         self.style.configure(".", background="#000000", foreground="#ffffff")
         self.style.configure("TFrame", background="#000000")
         self.style.configure("TButton", background="#000000", foreground="#ffffff")
-        self.style.configure("TEntry", background="#000000", foreground="#ffffff")
+        self.style.configure("TEntry", background="#ffffff", foreground="#000000")
         self.style.map("TButton", background=[("active", "#333333")])  # Changer la couleur lorsqu'il est activé
         self.style.configure("TCombobox", arrowcolor="white")  # Couleur de la flèche
         
@@ -30,26 +30,32 @@ class ApplicationCombinaisons(tk.Tk):
         
         # Logo
         self.logo_image = Image.open("logo.jpg")
-        self.logo_image = self.logo_image.resize((200, 200), Image.ANTIALIAS)
+        self.logo_image = self.logo_image.resize((378, 90), Image.LANCZOS)
         self.logo_photo = ImageTk.PhotoImage(self.logo_image)
         self.logo_label = tk.Label(self, image=self.logo_photo, bg="#000000")
         self.logo_label.grid(row=0, column=0, pady=10)
         
         # Libellé
         ttk.Label(self.cadre_principal, text="Numéro Initial :", foreground="#ffffff").grid(row=0, column=0, sticky="w")
-        ttk.Label(self.cadre_principal, text="\u0332".join("Ecrivez un X pour chaque inconnu dans le numéro"), font=("TkDefaultFont", 9, "italic"), foreground="#ffffff").grid(row=1, column=0, columnspan=2, sticky="w")
+        ttk.Label(self.cadre_principal, text="Ecrivez un X pour chaque inconnu dans le numéro", font=("TkDefaultFont", 9, "italic"), foreground="#ffffff").grid(row=1, column=0, columnspan=2, sticky="w")
         ttk.Label(self.cadre_principal, text="Format de Sortie :", foreground="#ffffff").grid(row=2, column=0, sticky="w")
         
         # Entrée
-        self.entree_numero_initial = ttk.Entry(self.cadre_principal)
+        self.entree_numero_initial = ttk.Entry(self.cadre_principal, style="EntreeBlanche.TEntry")
         self.entree_numero_initial.grid(row=0, column=1, sticky="w")
         self.entree_numero_initial.insert(0, "06XX456944")  # Ajouter un exemple
-        self.entree_numero_initial.config(foreground="white")  # Changer ici
+        self.entree_numero_initial.config(foreground="black")  # Changer ici
+        
+        # Définition du style pour la case d'entrée avec fond blanc
+        self.style.configure("EntreeBlanche.TEntry", foreground="black", background="white")
         
         self.combobox_format_sortie = ttk.Combobox(self.cadre_principal, values=["txt", "csv", "json"])
         self.combobox_format_sortie.grid(row=2, column=1, sticky="w")
         self.combobox_format_sortie.set("txt")  # Choisir txt par défaut
-        self.combobox_format_sortie.config(foreground="white")  # Changer ici
+        self.combobox_format_sortie.config(foreground="black")  # Changer ici
+        
+        # Définition du style pour le texte "txt" en noir
+        self.style.map("TCombobox", fieldbackground=[("readonly", "white")], foreground=[("readonly", "black")])
         
         # Boutons
         self.bouton_generer = ttk.Button(self.cadre_principal, text="Générer", command=self.generer_combinaisons)
