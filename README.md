@@ -2,7 +2,7 @@
 Ce script Python permet de générer toutes les combinaisons possibles à partir d'un numéro initial contenant des chiffres inconnus représentés par des 'X'. Les combinaisons peuvent être générées dans différents formats de sortie tels que le texte brut, le CSV ou le JSON.
 
 ## Prérequis
-Avant d'exécuter ce script, assurez-vous d'avoir Python 3.x installé sur votre système. De plus, les bibliothèques suivantes doivent être installées :
+Avant d'exécuter ce script, assurez-vous d'avoir Python 3.11.9 installé sur votre système. De plus, les bibliothèques suivantes doivent être installées :
 
 tkinter
 PIL (Python Imaging Library)
